@@ -8,7 +8,7 @@ def add(a:int, b:int)->int:
     return a+b
 
 @mcp.tool()
-def multiple(a:int, b:int)->int:
+def multiply(a:int, b:int)->int:
     """Multiplies two numbers"""
     return a*b
 

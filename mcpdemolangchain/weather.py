@@ -3,7 +3,7 @@ from mcp.server.fastmcp import FastMCP
 mcp=FastMCP("weather")
 
 @mcp.tool()
-async def get_weather(city:str)->str:
+def get_weather(city:str)->str:
     """Get weather of a city"""
     return f"Weather of {city} is sunny"
 
