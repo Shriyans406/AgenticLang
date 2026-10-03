@@ -5,5 +5,5 @@ langchain-text-splitters
 pypdf
 pymupdf
 sentence-transformers
-fasiss-cpu
+faiss-cpu
 chromadb
