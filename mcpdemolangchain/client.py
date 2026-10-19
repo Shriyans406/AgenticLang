@@ -20,7 +20,7 @@ async def main():
         },
     })
     all_tools = await client.get_tools()
-    model = ChatGroq(model="llama3-70b-8192")
+    model = ChatGroq(model="openai/gpt-oss-120b")
     agent = create_react_agent(model=model, tools=all_tools)
     result = await agent.ainvoke({"messages": [{"role": "user", "content": "What is 2+2?"}]})
     print(result["messages"][-1].content)

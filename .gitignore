@@ -10,3 +10,6 @@ wheels/
 .venv
 
 .env
+
+# local vector store index
+YTRAG/data/vector_store/
