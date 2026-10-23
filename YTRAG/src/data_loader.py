@@ -69,4 +69,37 @@ def load_all_documents(data_dir: str) -> List[Any]:
             print(f"[ERROR] Failed to load Excel {xlsx_file}: {e}")
 
         
+    # Word files
+    docx_files = list(data_path.glob('**/*.docx'))
+    print(f"[DEBUG] Found {len(docx_files)} Word files: {[str(f) for f in docx_files]}")
+    for docx_file in docx_files:
+        print(f"[DEBUG] Loading Word: {docx_file}")
+        try:
+            loader = Docx2txtLoader(str(docx_file))
+            loaded = loader.load()
+            print(f"[DEBUG] Loaded {len(loaded)} Word docs from {docx_file}")
+            documents.extend(loaded)
+        except Exception as e:
+            print(f"[ERROR] Failed to load Word {docx_file}: {e}")
+
+    # JSON files
+    json_files = list(data_path.glob('**/*.json'))
+    print(f"[DEBUG] Found {len(json_files)} JSON files: {[str(f) for f in json_files]}")
+    for json_file in json_files:
+        print(f"[DEBUG] Loading JSON: {json_file}")
+        try:
+            loader = JSONLoader(str(json_file))
+            loaded = loader.load()
+            print(f"[DEBUG] Loaded {len(loaded)} JSON docs from {json_file}")
+            documents.extend(loaded)
+        except Exception as e:
+            print(f"[ERROR] Failed to load JSON {json_file}: {e}")
+
+    print(f"[DEBUG] Total loaded documents: {len(documents)}")
     return documents
+
+    # Example usage
+if __name__ == "__main__":
+    docs = load_all_documents("data")
+    print(f"Loaded {len(docs)} documents.")
+    print("Example document:", docs[0] if docs else None)
