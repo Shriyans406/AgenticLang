@@ -29,7 +29,7 @@ def load_all_documents(data_dir: str) -> List[Any]:
         except Exception as e:
             print(f"[ERROR] Failed to load PDF {pdf_file}: {e}")
 
-        # TXT files
+    # TXT files
     txt_files = list(data_path.glob('**/*.txt'))
     print(f"[DEBUG] Found {len(txt_files)} TXT files: {[str(f) for f in txt_files]}")
     for txt_file in txt_files:
@@ -68,7 +68,6 @@ def load_all_documents(data_dir: str) -> List[Any]:
         except Exception as e:
             print(f"[ERROR] Failed to load Excel {xlsx_file}: {e}")
 
-        
     # Word files
     docx_files = list(data_path.glob('**/*.docx'))
     print(f"[DEBUG] Found {len(docx_files)} Word files: {[str(f) for f in docx_files]}")

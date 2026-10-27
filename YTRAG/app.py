@@ -7,7 +7,6 @@ from src.search import RAGSearch
 if __name__ == "__main__":
     docs = load_all_documents("data")
     rag = RAGSearch()
-    rag.build_index(docs)
     results = rag.search("What is attention mechanism?")
     print(f"Found {len(results)} results")
     

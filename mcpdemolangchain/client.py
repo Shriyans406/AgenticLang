@@ -6,12 +6,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import asyncio
+import os
 
 async def main():
+    math_path = os.path.join(os.path.dirname(__file__), "mathserver.py")
     client = MultiServerMCPClient({
         "math": {
             "command": "python",
-            "args": ["mathserver.py"],
+            "args": [math_path],
             "transport": "stdio",
         },
         "weather": {
